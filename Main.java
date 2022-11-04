@@ -14,17 +14,20 @@ public class Main {
         double money=0,payment1=0;
         String order ="",choice,item [] = new String[3];
         boolean loop = true;
+        //infinite loop
         while(true)
         {
            System.out.print("Enter your name: ");
             String name = input.next();
-
+           
+            //loop if choice = y (line 97)
             do
             {
                 System.out.println("Welcome to Tab's Coffee Shop Mr./Ms." + name +"\n");
                 System.out.println("Coffee Menu ");
                 System.out.println("A.Espresso P50 \nB.Cappucinno P65 \nC.Latte  P100\n");
-
+                
+                //loop if the input is not in the cases
                 for(int i = 0;i<1;i++)
                 {
                     System.out.print("Select your order Mr." + name + ": ");
@@ -58,11 +61,13 @@ public class Main {
                             input.nextLine();
                     }
                 }
+                //Validation of data
                 do
                 {
                     System.out.print("Quantity:");
                     if(input.hasNextInt())
                     {
+                        //Important one wrong mabuang kag 10 hours
                         quantity[q] = input.nextInt();
                         total1[q] =price *quantity[q];
                         total = price * quantity[q];
@@ -78,6 +83,7 @@ public class Main {
 
                 }while(loop==false);
                 System.out.println("\nInitial Payment: " + initialPayment);
+                //Validation of data
                 do
                 {
                     System.out.print("Do you want to order again? y/n: " );
@@ -95,8 +101,10 @@ public class Main {
             }while(choice.equalsIgnoreCase("y"));
 
             System.out.println("Total Payment: " + initialPayment);
+            
             do
             {
+                //validation of data
                 do
                 {
                     System.out.print("Enter money:");
@@ -117,7 +125,8 @@ public class Main {
 
                 }
             }while(payment<initialPayment);
-
+            
+            //Receipt
             double change = payment - initialPayment;
             System.out.println("------------------------------------------------");
             System.out.println("                 Receipt no."+a);
@@ -141,6 +150,7 @@ public class Main {
             System.out.println("Change                                     P"+change+"\n");
             System.out.println("             Thank you for buying \n               Tab's Coffee Shop");
             System.out.println("************************************************");
+            //cleared the datatypes para murag bag o HAHAHAHAHAHAHA
             initialPayment =0; j=0;
             item[0] = null;
             item[1] = null;
